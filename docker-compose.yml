@@ -1,0 +1,30 @@
+version: '3'
+services:
+# fabric network with GoLang
+# version 2.0.0
+    peer:
+        image: "hyperledger/fabric-peer:$NTEWORK_TAG"
+    orderer:
+        image: "hyperledger/fabric-orderer:$NTEWORK_TAG"
+    ccenv:
+        image: "hyperledger/fabric-ccenv:$NTEWORK_TAG"
+    tools:
+        image: "hyperledger/fabric-tools:$NTEWORK_TAG"
+    nodeenv:
+        image: "hyperledger/fabric-nodeenv:$NTEWORK_TAG"
+    baseos:
+        image: "hyperledger/fabric-baseos:$NTEWORK_TAG"
+    javaenv:
+        image: "hyperledger/fabric-javaenv:$NTEWORK_TAG"
+# certificate authority
+# version 1.4.4
+    ca:
+        image: "hyperledger/fabric-ca:$CA_TAG"
+# thirdparty images
+# version 0.4.18
+    zookeeper:
+        image: "hyperledger/fabric-zookeeper:$THIRDPARTY_TAG"
+    kafka:
+        image: "hyperledger/fabric-kafka:$THIRDPARTY_TAG"
+    couchdb:
+        image: "hyperledger/fabric-couchdb:$THIRDPARTY_TAG"

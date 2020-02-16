@@ -1,0 +1,793 @@
+pavel@Pavel-PC:~/workspace/myfabric$ url -sSL http://bit.ly/2ysbOFE | bash -s --
+
+Command 'url' not found, did you mean:
+
+  command 'surl' from snap surl (0.71)
+  command 'zurl' from deb zurl (1.10.1-1)
+  command 'ul' from deb bsdmainutils (11.1.2ubuntu2)
+  command 'ur' from deb libur-perl (0.470+ds-1)
+  command 'curl' from deb curl (7.65.3-1ubuntu3)
+  command 'erl' from deb erlang-base (1:22.0.7+dfsg-1build1)
+  command 'erl' from deb erlang-base-hipe (1:22.0.7+dfsg-1build1)
+  command 'uil' from deb uil (2.3.8-2build1)
+
+See 'snap info <snapname>' for additional versions.
+
+pavel@Pavel-PC:~/workspace/myfabric$ curl -sSL http://bit.ly/2ysbOFE | bash -s --
+
+Clone hyperledger/fabric-samples repo
+
+===> Cloning hyperledger/fabric-samples repo and checkout v2.0.0
+Cloning into 'fabric-samples'...
+remote: Enumerating objects: 4756, done.
+remote: Total 4756 (delta 0), reused 0 (delta 0), pack-reused 4756
+Receiving objects: 100% (4756/4756), 1.70 MiB | 2.52 MiB/s, done.
+Resolving deltas: 100% (2383/2383), done.
+error: pathspec 'v2.0.0' did not match any file(s) known to git
+
+Pull Hyperledger Fabric binaries
+
+===> Downloading version 2.0.0 platform specific fabric binaries
+===> Downloading:  https://github.com/hyperledger/fabric/releases/download/v2.0.0/hyperledger-fabric-linux-amd64-2.0.0.tar.gz
+--2020-02-16 19:34:29--  https://github.com/hyperledger/fabric/releases/download/v2.0.0/hyperledger-fabric-linux-amd64-2.0.0.tar.gz
+Resolving github.com (github.com)... 140.82.118.3
+Connecting to github.com (github.com)|140.82.118.3|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://github-production-release-asset-2e65be.s3.amazonaws.com/66573241/b28b1b80-42bb-11ea-868a-57c6b88c60d1?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200216%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200216T163429Z&X-Amz-Expires=300&X-Amz-Signature=14e8ca2412efff05479ac38d38f9d8607047cb2b623b06a20e8f696377469a95&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dhyperledger-fabric-linux-amd64-2.0.0.tar.gz&response-content-type=application%2Foctet-stream [following]
+--2020-02-16 19:34:29--  https://github-production-release-asset-2e65be.s3.amazonaws.com/66573241/b28b1b80-42bb-11ea-868a-57c6b88c60d1?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200216%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200216T163429Z&X-Amz-Expires=300&X-Amz-Signature=14e8ca2412efff05479ac38d38f9d8607047cb2b623b06a20e8f696377469a95&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dhyperledger-fabric-linux-amd64-2.0.0.tar.gz&response-content-type=application%2Foctet-stream
+Resolving github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)... 52.217.4.4
+Connecting to github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)|52.217.4.4|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 76285381 (73M) [application/octet-stream]
+Saving to: ‘hyperledger-fabric-linux-amd64-2.0.0.tar.gz’
+
+hyperledger-fabric-linux-amd64-2.0.0.tar.gz  100%[============================================================================================>]  72,75M  9,40MB/s    in 20s     
+
+2020-02-16 19:34:49 (3,69 MB/s) - ‘hyperledger-fabric-linux-amd64-2.0.0.tar.gz’ saved [76285381/76285381]
+
+bin/
+bin/configtxgen
+bin/orderer
+bin/peer
+bin/discover
+bin/idemixgen
+bin/configtxlator
+bin/cryptogen
+config/
+config/configtx.yaml
+config/core.yaml
+config/orderer.yaml
+==> Done.
+===> Downloading version 1.4.4 platform specific fabric-ca-client binary
+===> Downloading:  https://github.com/hyperledger/fabric-ca/releases/download/v1.4.4/hyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz
+--2020-02-16 19:34:51--  https://github.com/hyperledger/fabric-ca/releases/download/v1.4.4/hyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz
+Resolving github.com (github.com)... 140.82.118.3
+Connecting to github.com (github.com)|140.82.118.3|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://github-production-release-asset-2e65be.s3.amazonaws.com/79410323/6386e700-4471-11ea-9ddb-b61c6a1696ce?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200216%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200216T163451Z&X-Amz-Expires=300&X-Amz-Signature=25be17461c7083e53af0f7009e4c0f9c69dcb41e0079403e8ef380146b36cf53&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dhyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz&response-content-type=application%2Foctet-stream [following]
+--2020-02-16 19:34:51--  https://github-production-release-asset-2e65be.s3.amazonaws.com/79410323/6386e700-4471-11ea-9ddb-b61c6a1696ce?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200216%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200216T163451Z&X-Amz-Expires=300&X-Amz-Signature=25be17461c7083e53af0f7009e4c0f9c69dcb41e0079403e8ef380146b36cf53&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dhyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz&response-content-type=application%2Foctet-stream
+Resolving github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)... 52.217.9.252
+Connecting to github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)|52.217.9.252|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 20714352 (20M) [application/octet-stream]
+Saving to: ‘hyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz’
+
+hyperledger-fabric-ca-linux-amd64-1.4.4.tar. 100%[============================================================================================>]  19,75M  2,50MB/s    in 9,5s    
+
+2020-02-16 19:35:02 (2,07 MB/s) - ‘hyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz’ saved [20714352/20714352]
+
+bin/
+bin/fabric-ca-client
+bin/fabric-ca-server
+==> Done.
+
+Pull Hyperledger Fabric docker images
+
+FABRIC_IMAGES: peer orderer ccenv tools nodeenv baseos javaenv
+===> Pulling fabric Images
+====> hyperledger/fabric-peer:2.0.0
+2.0.0: Pulling from hyperledger/fabric-peer
+89d9c30c1d48: Pull complete 
+1c445649d0ce: Pull complete 
+75bd154af8a6: Pull complete 
+1880164625e3: Pull complete 
+59fce3445a13: Pull complete 
+Digest: sha256:2d8c001a0843ccbd63ad2be9d30427cd5bfd35603f3c82d84921f1609371ac02
+Status: Downloaded newer image for hyperledger/fabric-peer:2.0.0
+docker.io/hyperledger/fabric-peer:2.0.0
+====> hyperledger/fabric-orderer:2.0.0
+2.0.0: Pulling from hyperledger/fabric-orderer
+89d9c30c1d48: Already exists 
+1c445649d0ce: Already exists 
+9cbee72e58b6: Pull complete 
+5a7f6111fc1d: Pull complete 
+0b6242c783bb: Pull complete 
+500623fc5ad4: Pull complete 
+Digest: sha256:e85d1e89248d9ae1f3953ac6eb11b4d5795903757ecd7702ac1f5384c71371e3
+Status: Downloaded newer image for hyperledger/fabric-orderer:2.0.0
+docker.io/hyperledger/fabric-orderer:2.0.0
+====> hyperledger/fabric-ccenv:2.0.0
+2.0.0: Pulling from hyperledger/fabric-ccenv
+89d9c30c1d48: Already exists 
+8ef94372a977: Pull complete 
+1ec62c064901: Pull complete 
+a47b1e89d194: Pull complete 
+bf1a3d234800: Pull complete 
+681c29bcda76: Pull complete 
+a5d36c55c08a: Pull complete 
+628155191e54: Pull complete 
+3d0b9d65b41b: Pull complete 
+Digest: sha256:40ba25216a72a6ca95ba0455b35e4557456079889d86f883dc73c9334ea30508
+Status: Downloaded newer image for hyperledger/fabric-ccenv:2.0.0
+docker.io/hyperledger/fabric-ccenv:2.0.0
+====> hyperledger/fabric-tools:2.0.0
+2.0.0: Pulling from hyperledger/fabric-tools
+89d9c30c1d48: Already exists 
+8ef94372a977: Already exists 
+1ec62c064901: Already exists 
+a47b1e89d194: Already exists 
+bf1a3d234800: Already exists 
+7248511475f8: Pull complete 
+86517f31fe81: Pull complete 
+3652d5cbc5d0: Pull complete 
+Digest: sha256:e8446809c5e231c65c2917afedb4fe13d18d7842d0918338333686a409471274
+Status: Downloaded newer image for hyperledger/fabric-tools:2.0.0
+docker.io/hyperledger/fabric-tools:2.0.0
+====> hyperledger/fabric-nodeenv:2.0.0
+2.0.0: Pulling from hyperledger/fabric-nodeenv
+e7c96db7181b: Pull complete 
+68c3b461dfcb: Pull complete 
+523dcfd12721: Pull complete 
+1e07af271ebb: Pull complete 
+0db239d3462c: Pull complete 
+2df2a70ba977: Pull complete 
+5b7e3b67a90a: Pull complete 
+Digest: sha256:6366bffb5594febdd2d91a78cc9d4ba091f5d9437283e5a7d68f71b5ae6e0a14
+Status: Downloaded newer image for hyperledger/fabric-nodeenv:2.0.0
+docker.io/hyperledger/fabric-nodeenv:2.0.0
+====> hyperledger/fabric-baseos:2.0.0
+2.0.0: Pulling from hyperledger/fabric-baseos
+89d9c30c1d48: Already exists 
+1c445649d0ce: Already exists 
+f1ecbfc9c935: Pull complete 
+Digest: sha256:9c19a0ea672da7a2bedecf0cc78a368f300067a1e9525db216f468a30fa8726f
+Status: Downloaded newer image for hyperledger/fabric-baseos:2.0.0
+docker.io/hyperledger/fabric-baseos:2.0.0
+====> hyperledger/fabric-javaenv:2.0.0
+2.0.0: Pulling from hyperledger/fabric-javaenv
+9d48c3bd43c5: Already exists 
+15f4f2d99e41: Pull complete 
+37cbb5ebfe5b: Pull complete 
+18c2819f2aa6: Pull complete 
+ed4151f1ac6c: Pull complete 
+b0f43a9e331c: Pull complete 
+801e44b0018a: Pull complete 
+58ff26365e3b: Pull complete 
+8c5818505962: Pull complete 
+856875e37ac9: Pull complete 
+Digest: sha256:8e09c80282c6df6461762d5a8f8b2b66e941889be9dfd5eb4bcd41691b517269
+Status: Downloaded newer image for hyperledger/fabric-javaenv:2.0.0
+docker.io/hyperledger/fabric-javaenv:2.0.0
+===> Pulling fabric ca Image
+====> hyperledger/fabric-ca:1.4.4
+1.4.4: Pulling from hyperledger/fabric-ca
+b8f262c62ec6: Pull complete 
+9c2dad781fe8: Pull complete 
+7e48a048d895: Pull complete 
+9d96ace3877c: Pull complete 
+a2d035916e73: Pull complete 
+998b88105ae5: Pull complete 
+ecca03945551: Pull complete 
+0eea958ac479: Pull complete 
+Digest: sha256:e506e3ce041fd6c4fca5d12492caf44597818d425a8ecc73cf2b135303365244
+Status: Downloaded newer image for hyperledger/fabric-ca:1.4.4
+docker.io/hyperledger/fabric-ca:1.4.4
+===> Pulling thirdparty docker images
+====> hyperledger/fabric-zookeeper:0.4.18
+0.4.18: Pulling from hyperledger/fabric-zookeeper
+7ddbc47eeb70: Pull complete 
+c1bbdc448b72: Pull complete 
+8c3b70e39044: Pull complete 
+45d437916d57: Pull complete 
+b5035666b1cd: Pull complete 
+454f364fa8f9: Pull complete 
+8d2edf9568d6: Pull complete 
+34539f6faa69: Pull complete 
+ce8d3daa1c23: Pull complete 
+aa613546ea7a: Pull complete 
+8fad74705649: Pull complete 
+f942fd545d8a: Pull complete 
+6dddb55bad94: Pull complete 
+Digest: sha256:ff5f9893355a56ac7dbc53d0b6a68c18cf7adfcc0c34a55a717866cb9c00a442
+Status: Downloaded newer image for hyperledger/fabric-zookeeper:0.4.18
+docker.io/hyperledger/fabric-zookeeper:0.4.18
+====> hyperledger/fabric-kafka:0.4.18
+0.4.18: Pulling from hyperledger/fabric-kafka
+7ddbc47eeb70: Already exists 
+c1bbdc448b72: Already exists 
+8c3b70e39044: Already exists 
+45d437916d57: Already exists 
+b5035666b1cd: Already exists 
+454f364fa8f9: Already exists 
+0f71dc83554e: Pull complete 
+bed0281cb779: Pull complete 
+73033e3a7473: Pull complete 
+Digest: sha256:b043b8b91fe858bfd51ad662e5816f9471f120e5ec3e77d29bf6c70bcec5c917
+Status: Downloaded newer image for hyperledger/fabric-kafka:0.4.18
+docker.io/hyperledger/fabric-kafka:0.4.18
+====> hyperledger/fabric-couchdb:0.4.18
+0.4.18: Pulling from hyperledger/fabric-couchdb
+8f91359f1fff: Pull complete 
+d99273889f3e: Pull complete 
+3a248732f3d2: Pull complete 
+941ee2be0fa2: Pull complete 
+991f59ffd446: Pull complete 
+f22ab95319bb: Pull complete 
+29334908bdc9: Pull complete 
+63e8abdcb623: Pull complete 
+83c77489c2cf: Pull complete 
+9fc4375990c7: Pull complete 
+348abe1ba56c: Pull complete 
+Digest: sha256:048b7c44c1deaabd0f3d84fbf2f7b649d7b10c54a3241c7354f078ee2eff077c
+Status: Downloaded newer image for hyperledger/fabric-couchdb:0.4.18
+docker.io/hyperledger/fabric-couchdb:0.4.18
+
+===> List out hyperledger docker images
+hyperledger/fabric-tools       2.0                 639ab50feac9        2 weeks ago         514MB
+hyperledger/fabric-tools       2.0.0               639ab50feac9        2 weeks ago         514MB
+hyperledger/fabric-tools       latest              639ab50feac9        2 weeks ago         514MB
+hyperledger/fabric-peer        2.0                 5f8a6b13db9f        2 weeks ago         57.2MB
+hyperledger/fabric-peer        2.0.0               5f8a6b13db9f        2 weeks ago         57.2MB
+hyperledger/fabric-peer        latest              5f8a6b13db9f        2 weeks ago         57.2MB
+hyperledger/fabric-orderer     2.0                 161632cc3c59        2 weeks ago         39.7MB
+hyperledger/fabric-orderer     2.0.0               161632cc3c59        2 weeks ago         39.7MB
+hyperledger/fabric-orderer     latest              161632cc3c59        2 weeks ago         39.7MB
+hyperledger/fabric-ccenv       2.0                 6514ca872b68        2 weeks ago         529MB
+hyperledger/fabric-ccenv       2.0.0               6514ca872b68        2 weeks ago         529MB
+hyperledger/fabric-ccenv       latest              6514ca872b68        2 weeks ago         529MB
+hyperledger/fabric-baseos      2.0                 50075bc26291        2 weeks ago         6.9MB
+hyperledger/fabric-baseos      2.0.0               50075bc26291        2 weeks ago         6.9MB
+hyperledger/fabric-baseos      latest              50075bc26291        2 weeks ago         6.9MB
+hyperledger/fabric-javaenv     2.0                 ac433f4353e4        3 weeks ago         507MB
+hyperledger/fabric-javaenv     2.0.0               ac433f4353e4        3 weeks ago         507MB
+hyperledger/fabric-javaenv     latest              ac433f4353e4        3 weeks ago         507MB
+hyperledger/fabric-nodeenv     2.0                 c7fe428889ec        3 weeks ago         274MB
+hyperledger/fabric-nodeenv     2.0.0               c7fe428889ec        3 weeks ago         274MB
+hyperledger/fabric-nodeenv     latest              c7fe428889ec        3 weeks ago         274MB
+hyperledger/fabric-ca          1.4                 62a60c5459ae        3 months ago        150MB
+hyperledger/fabric-ca          1.4.4               62a60c5459ae        3 months ago        150MB
+hyperledger/fabric-ca          latest              62a60c5459ae        3 months ago        150MB
+hyperledger/fabric-zookeeper   0.4                 ede9389347db        3 months ago        276MB
+hyperledger/fabric-zookeeper   0.4.18              ede9389347db        3 months ago        276MB
+hyperledger/fabric-zookeeper   latest              ede9389347db        3 months ago        276MB
+hyperledger/fabric-kafka       0.4                 caaae0474ef2        3 months ago        270MB
+hyperledger/fabric-kafka       0.4.18              caaae0474ef2        3 months ago        270MB
+hyperledger/fabric-kafka       latest              caaae0474ef2        3 months ago        270MB
+hyperledger/fabric-couchdb     0.4                 d369d4eaa0fd        3 months ago        261MB
+hyperledger/fabric-couchdb     0.4.18              d369d4eaa0fd        3 months ago        261MB
+hyperledger/fabric-couchdb     latest              d369d4eaa0fd        3 months ago        261MB
+pavel@Pavel-PC:~/workspace/myfabric$ export PATH=/home/pavel/workspace/myfabric/fabric-samples/bin:$PATH
+pavel@Pavel-PC:~/workspace/myfabric$ cr
+cracklib-check        cracklib-packer       crda                  cron                  cryptogen             
+cracklib-format       cracklib-unpacker     create-cracklib-dict  crontab               
+pavel@Pavel-PC:~/workspace/myfabric$ cd ./fabric-samples/
+bin/                      ci/                       docs/                     .git/                     off_chain_data/           
+chaincode/                commercial-paper/         fabcar/                   high-throughput/          scripts/                  
+chaincode-docker-devmode/ config/                   first-network/            interest_rate_swaps/      test-network/             
+pavel@Pavel-PC:~/workspace/myfabric$ cd ./fabric-samples/first-network/
+pavel@Pavel-PC:~/workspace/myfabric/fabric-samples/first-network$ ls
+base             ccp-template.json  configtx.yaml           docker-compose-cli.yaml         docker-compose-e2e-template.yaml  eyfn.sh         scripts
+byfn.sh          ccp-template.yaml  crypto-config.yaml      docker-compose-couch-org3.yaml  docker-compose-etcdraft2.yaml     org3-artifacts
+ccp-generate.sh  channel-artifacts  docker-compose-ca.yaml  docker-compose-couch.yaml       docker-compose-org3.yaml          README.md
+pavel@Pavel-PC:~/workspace/myfabric/fabric-samples/first-network$ byfn.sh generate -c test.chan
+byfn.sh: command not found
+pavel@Pavel-PC:~/workspace/myfabric/fabric-samples/first-network$ sh ./byfn.sh generate -c test.chan
+./byfn.sh: 36: Syntax error: "(" unexpected
+pavel@Pavel-PC:~/workspace/myfabric/fabric-samples/first-network$ sh ./byfn.sh generate -c testchan
+./byfn.sh: 36: Syntax error: "(" unexpected
+pavel@Pavel-PC:~/workspace/myfabric/fabric-samples/first-network$ byfn.sh generate -c testchan
+byfn.sh: command not found
+pavel@Pavel-PC:~/workspace/myfabric/fabric-samples/first-network$ chmod +x ./byfn.sh 
+pavel@Pavel-PC:~/workspace/myfabric/fabric-samples/first-network$ byfn.sh generate -c testchan
+byfn.sh: command not found
+pavel@Pavel-PC:~/workspace/myfabric/fabric-samples/first-network$ ./byfn.sh generate -c testchan
+Generating certs and genesis block for channel 'testchan' with CLI timeout of '10' seconds and CLI delay of '3' seconds
+Continue? [Y/n] y
+proceeding ...
+/home/pavel/workspace/myfabric/fabric-samples/first-network/../bin/cryptogen
+
+##########################################################
+##### Generate certificates using cryptogen tool #########
+##########################################################
++ cryptogen generate --config=./crypto-config.yaml
+org1.example.com
+org2.example.com
++ res=0
++ set +x
+
+Generate CCP files for Org1 and Org2
+/home/pavel/workspace/myfabric/fabric-samples/first-network/../bin/configtxgen
+##########################################################
+#########  Generating Orderer Genesis block ##############
+##########################################################
+2020-02-16 20:14:19.780 MSK [common.tools.configtxgen] main -> INFO 001 Loading configuration
+2020-02-16 20:14:19.817 MSK [common.tools.configtxgen.localconfig] completeInitialization -> INFO 002 orderer type: etcdraft
+2020-02-16 20:14:19.817 MSK [common.tools.configtxgen.localconfig] completeInitialization -> INFO 003 Orderer.EtcdRaft.Options unset, setting to tick_interval:"500ms" election_tick:10 heartbeat_tick:1 max_inflight_blocks:5 snapshot_interval_size:16777216 
+2020-02-16 20:14:19.817 MSK [common.tools.configtxgen.localconfig] Load -> INFO 004 Loaded configuration: /home/pavel/workspace/myfabric/fabric-samples/first-network/configtx.yaml
+2020-02-16 20:14:19.819 MSK [common.tools.configtxgen] doOutputBlock -> INFO 005 Generating genesis block
+2020-02-16 20:14:19.820 MSK [common.tools.configtxgen] doOutputBlock -> INFO 006 Writing genesis block
+
+#################################################################
+### Generating channel configuration transaction 'channel.tx' ###
+#################################################################
++ configtxgen -profile TwoOrgsChannel -outputCreateChannelTx ./channel-artifacts/channel.tx -channelID testchan
+2020-02-16 20:14:19.853 MSK [common.tools.configtxgen] main -> INFO 001 Loading configuration
+2020-02-16 20:14:19.885 MSK [common.tools.configtxgen.localconfig] Load -> INFO 002 Loaded configuration: /home/pavel/workspace/myfabric/fabric-samples/first-network/configtx.yaml
+2020-02-16 20:14:19.885 MSK [common.tools.configtxgen] doOutputChannelCreateTx -> INFO 003 Generating new channel configtx
+2020-02-16 20:14:19.887 MSK [common.tools.configtxgen] doOutputChannelCreateTx -> INFO 004 Writing new channel tx
++ res=0
++ set +x
+
+#################################################################
+#######    Generating anchor peer update for Org1MSP   ##########
+#################################################################
++ configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org1MSPanchors.tx -channelID testchan -asOrg Org1MSP
+2020-02-16 20:14:19.919 MSK [common.tools.configtxgen] main -> INFO 001 Loading configuration
+2020-02-16 20:14:19.956 MSK [common.tools.configtxgen.localconfig] Load -> INFO 002 Loaded configuration: /home/pavel/workspace/myfabric/fabric-samples/first-network/configtx.yaml
+2020-02-16 20:14:19.956 MSK [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 003 Generating anchor peer update
+2020-02-16 20:14:19.961 MSK [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 004 Writing anchor peer update
++ res=0
++ set +x
+
+#################################################################
+#######    Generating anchor peer update for Org2MSP   ##########
+#################################################################
++ configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org2MSPanchors.tx -channelID testchan -asOrg Org2MSP
+2020-02-16 20:14:19.999 MSK [common.tools.configtxgen] main -> INFO 001 Loading configuration
+2020-02-16 20:14:20.036 MSK [common.tools.configtxgen.localconfig] Load -> INFO 002 Loaded configuration: /home/pavel/workspace/myfabric/fabric-samples/first-network/configtx.yaml
+2020-02-16 20:14:20.036 MSK [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 003 Generating anchor peer update
+2020-02-16 20:14:20.037 MSK [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 004 Writing anchor peer update
++ res=0
++ set +x
+
+pavel@Pavel-PC:~/workspace/myfabric/fabric-samples/first-network$ ^C
+pavel@Pavel-PC:~/workspace/myfabric/fabric-samples/first-network$ ./byfn.sh up
+Starting for channel 'mychannel' with CLI timeout of '10' seconds and CLI delay of '3' seconds
+Continue? [Y/n] n
+exiting...
+pavel@Pavel-PC:~/workspace/myfabric/fabric-samples/first-network$ ./byfn.sh up -c testchan -s couchdb -o kafka
+./byfn.sh: illegal option -- o
+Usage: 
+  byfn.sh <mode> [-c <channel name>] [-t <timeout>] [-d <delay>] [-f <docker-compose-file>] [-s <dbtype>] [-l <language>] [-o <consensus-type>] [-i <imagetag>] [-a] [-n] [-v]
+    <mode> - one of 'up', 'down', 'restart', 'generate' or 'upgrade'
+      - 'up' - bring up the network with docker-compose up
+      - 'down' - clear the network with docker-compose down
+      - 'restart' - restart the network
+      - 'generate' - generate required certificates and genesis block
+      - 'upgrade'  - upgrade the network from version 1.3.x to 1.4.0
+    -c <channel name> - channel name to use (defaults to "mychannel")
+    -t <timeout> - CLI timeout duration in seconds (defaults to 10)
+    -d <delay> - delay duration in seconds (defaults to 3)
+    -s <dbtype> - the database backend to use: goleveldb (default) or couchdb
+    -l <language> - the programming language of the chaincode to deploy: go (default), javascript, or java
+    -i <imagetag> - the tag to be used to launch the network (defaults to "latest")
+    -a - launch certificate authorities (no certificate authorities are launched by default)
+    -n - do not deploy chaincode (abstore chaincode is deployed by default)
+    -v - verbose mode
+  byfn.sh -h (print this message)
+
+Typically, one would first generate the required certificates and 
+genesis block, then bring up the network. e.g.:
+
+        byfn.sh generate -c mychannel
+        byfn.sh up -c mychannel -s couchdb
+        byfn.sh up -c mychannel -s couchdb -i 1.4.0
+        byfn.sh up -l javascript
+        byfn.sh down -c mychannel
+        byfn.sh upgrade -c mychannel
+
+Taking all defaults:
+        byfn.sh generate
+        byfn.sh up
+        byfn.sh down
+pavel@Pavel-PC:~/workspace/myfabric/fabric-samples/first-network$ ./byfn.sh up -c testchan -s couchdb
+
+Starting for channel 'testchan' with CLI timeout of '10' seconds and CLI delay of '3' seconds and using database 'couchdb'
+Continue? [Y/n] y
+proceeding ...
+LOCAL_VERSION=2.0.0
+DOCKER_IMAGE_VERSION=2.0.0
+Creating network "net_byfn" with the default driver
+Creating volume "net_orderer.example.com" with default driver
+Creating volume "net_peer0.org1.example.com" with default driver
+Creating volume "net_peer1.org1.example.com" with default driver
+Creating volume "net_peer0.org2.example.com" with default driver
+Creating volume "net_peer1.org2.example.com" with default driver
+Creating volume "net_orderer2.example.com" with default driver
+Creating volume "net_orderer3.example.com" with default driver
+Creating volume "net_orderer4.example.com" with default driver
+Creating volume "net_orderer5.example.com" with default driver
+Pulling couchdb2 (couchdb:2.3)...
+2.3: Pulling from library/couchdb
+619014d83c02: Pull complete
+0bcd27e5cfd6: Pull complete
+a920e9c1f173: Pull complete
+681c7f7bafee: Pull complete
+bf4cadf8a739: Pull complete
+32160199e71a: Pull complete
+d361bf917c36: Pull complete
+19587d369ef7: Pull complete
+ab71925ba4e2: Pull complete
+4eb45a1caa30: Pull complete
+aa7e40ef8caa: Pull complete
+8232fb4dc150: Pull complete
+Digest: sha256:37124bd9171d735d7b6fc14eea8214d700a23af8b268a90e1da6c2f1163c6c92
+Status: Downloaded newer image for couchdb:2.3
+Creating couchdb3               ... done
+Creating couchdb1               ... done
+Creating couchdb2             ... done
+Creating orderer3.example.com   ... done
+Creating orderer2.example.com   ... done
+Creating orderer4.example.com   ... done
+Creating orderer.example.com    ... done
+Creating couchdb0               ... done
+Creating orderer5.example.com   ... done
+Creating peer0.org2.example.com ... done
+Creating peer0.org1.example.com ... done
+Creating peer1.org1.example.com ... done
+Creating peer1.org2.example.com ... done
+Creating cli                    ... done
+CONTAINER ID        IMAGE                               COMMAND                  CREATED             STATUS                    PORTS                                        NAMES
+c710cdd556c0        hyperledger/fabric-tools:latest     "/bin/bash"              1 second ago        Up Less than a second                                                  cli
+5c70adace55b        hyperledger/fabric-peer:latest      "peer node start"        2 seconds ago       Up Less than a second     7051/tcp, 0.0.0.0:10051->10051/tcp           peer1.org2.example.com
+e0a52e10aca4        hyperledger/fabric-peer:latest      "peer node start"        3 seconds ago       Up 1 second               7051/tcp, 0.0.0.0:8051->8051/tcp             peer1.org1.example.com
+1ed796d7fa00        hyperledger/fabric-peer:latest      "peer node start"        3 seconds ago       Up 1 second               0.0.0.0:7051->7051/tcp                       peer0.org1.example.com
+8fb084aa57b8        hyperledger/fabric-peer:latest      "peer node start"        3 seconds ago       Up 1 second               7051/tcp, 0.0.0.0:9051->9051/tcp             peer0.org2.example.com
+ba0ecf79051c        hyperledger/fabric-orderer:latest   "orderer"                6 seconds ago       Up 1 second               0.0.0.0:7050->7050/tcp                       orderer.example.com
+ac2ee5fdc022        couchdb:2.3                         "tini -- /docker-ent…"   6 seconds ago       Up 3 seconds              4369/tcp, 9100/tcp, 0.0.0.0:5984->5984/tcp   couchdb0
+a81384c18ce6        hyperledger/fabric-orderer:latest   "orderer"                6 seconds ago       Up 2 seconds              7050/tcp, 0.0.0.0:11050->11050/tcp           orderer5.example.com
+8400a06e064b        hyperledger/fabric-orderer:latest   "orderer"                6 seconds ago       Up 2 seconds              7050/tcp, 0.0.0.0:10050->10050/tcp           orderer4.example.com
+496dc14fa28d        couchdb:2.3                         "tini -- /docker-ent…"   6 seconds ago       Up 3 seconds              4369/tcp, 9100/tcp, 0.0.0.0:7984->5984/tcp   couchdb2
+ae393837336b        couchdb:2.3                         "tini -- /docker-ent…"   6 seconds ago       Up 2 seconds              4369/tcp, 9100/tcp, 0.0.0.0:6984->5984/tcp   couchdb1
+2dfe537b5b83        hyperledger/fabric-orderer:latest   "orderer"                6 seconds ago       Up 2 seconds              7050/tcp, 0.0.0.0:9050->9050/tcp             orderer3.example.com
+602f2a43d96d        hyperledger/fabric-orderer:latest   "orderer"                6 seconds ago       Up 2 seconds              7050/tcp, 0.0.0.0:8050->8050/tcp             orderer2.example.com
+51a369f0fd68        couchdb:2.3                         "tini -- /docker-ent…"   6 seconds ago       Up 2 seconds              4369/tcp, 9100/tcp, 0.0.0.0:8984->5984/tcp   couchdb3
+72fdd20c22f4        palik1205/flaskapp:0.0.0            "/bin/sh -c 'python3…"   8 days ago          Exited (0) 8 days ago                                                  gallant_bhabha
+8c79c61c2789        palik1205/flaskapp:0.0.0            "-p 4454:2244"           8 days ago          Created                                                                boring_feistel
+0ea3170a4d7b        685416f774c0                        "/bin/sh -c 'pip3 in…"   8 days ago          Exited (1) 8 days ago                                                  heuristic_hofstadter
+c28ecd9545aa        685416f774c0                        "/bin/sh -c 'pip3 in…"   8 days ago          Exited (1) 8 days ago                                                  serene_kepler
+86243ee09a88        4d83d72c9511                        "/bin/sh -c 'pip ins…"   8 days ago          Exited (127) 8 days ago                                                sweet_booth
+d01d72d1697d        4d83d72c9511                        "/bin/sh -c 'pip3 in…"   8 days ago          Exited (1) 8 days ago                                                  trusting_swirles
+6de16d2c0164        jupyter/r-notebook                  "tini -g -- start-no…"   2 months ago        Exited (0) 7 weeks ago                                                 rjnb
+Sleeping 15s to allow Raft cluster to complete booting
+Vendoring Go dependencies ...
+~/workspace/myfabric/fabric-samples/chaincode/abstore/go ~/workspace/myfabric/fabric-samples/first-network
+go: finding github.com/hyperledger/fabric-chaincode-go v0.0.0-20190823162523-04390e015b85
+go: finding github.com/hyperledger/fabric-protos-go v0.0.0-20190821214336-621b908d5022
+go: finding golang.org/x/net v0.0.0-20190813141303-74dc4d7220e7
+go: finding google.golang.org/genproto v0.0.0-20190819201941-24fa4b261c55
+go: finding golang.org/x/text v0.3.2
+go: finding golang.org/x/sys v0.0.0-20190813064441-fde4db37ae7a
+go: finding google.golang.org/genproto v0.0.0-20180831171423-11092d34479b
+go: finding github.com/davecgh/go-spew v1.1.1
+go: finding github.com/stretchr/testify v1.4.0
+go: finding github.com/gogo/protobuf v1.2.1
+go: finding google.golang.org/grpc v1.23.0
+go: finding github.com/golang/protobuf v1.3.2
+go: finding golang.org/x/net v0.0.0-20190522155817-f3200d17e092
+go: finding golang.org/x/sys v0.0.0-20190710143415-6ec70d6a5542
+go: finding github.com/kr/pretty v0.1.0
+go: finding gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127
+go: finding github.com/pmezard/go-difflib v1.0.0
+go: finding golang.org/x/tools v0.0.0-20180917221912-90fa682c2a6e
+go: finding gopkg.in/yaml.v2 v2.2.2
+go: finding github.com/kr/text v0.1.0
+go: finding golang.org/x/text v0.3.0
+go: finding google.golang.org/genproto v0.0.0-20180817151627-c66870c02cf8
+go: finding golang.org/x/oauth2 v0.0.0-20180821212333-d2e6202438be
+go: finding golang.org/x/tools v0.0.0-20190524140312-2c0ae7006135
+go: finding github.com/client9/misspell v0.3.4
+go: finding golang.org/x/sys v0.0.0-20190215142949-d0b11bdaac8a
+go: finding github.com/golang/protobuf v1.2.0
+go: finding golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2
+go: finding cloud.google.com/go v0.26.0
+go: finding golang.org/x/net v0.0.0-20190311183353-d8887717615a
+go: finding google.golang.org/appengine v1.1.0
+go: finding github.com/google/go-cmp v0.2.0
+go: finding github.com/kr/pty v1.1.1
+go: finding golang.org/x/lint v0.0.0-20190313153728-d0100b6bd8b3
+go: finding github.com/davecgh/go-spew v1.1.0
+go: finding github.com/stretchr/objx v0.1.0
+go: finding github.com/BurntSushi/toml v0.3.1
+go: finding github.com/kisielk/errcheck v1.1.0
+go: finding gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405
+go: finding github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
+go: finding github.com/golang/mock v1.1.1
+go: finding golang.org/x/sync v0.0.0-20190423024810-112230192c58
+go: finding golang.org/x/tools v0.0.0-20190311212946-11955173bddd
+go: finding honnef.co/go/tools v0.0.0-20190523083050-ea95bdfd59fc
+go: finding golang.org/x/tools v0.0.0-20180221164845-07fd8470d635
+go: finding github.com/kisielk/gotool v1.0.0
+go: finding honnef.co/go/tools v0.0.0-20190102054323-c2f93a96b099
+go: finding golang.org/x/lint v0.0.0-20190227174305-5b3e6a55c961
+go: finding golang.org/x/tools v0.0.0-20190226205152-f727befe758c
+go: finding google.golang.org/grpc v1.19.0
+go: finding golang.org/x/net v0.0.0-20190213061140-3a22650c66bd
+go: finding golang.org/x/sync v0.0.0-20181108010431-42b317875d0f
+go: finding google.golang.org/appengine v1.4.0
+go: finding golang.org/x/exp v0.0.0-20190121172915-509febef88a4
+go: finding golang.org/x/lint v0.0.0-20181026193005-c67002cb31c3
+go: finding golang.org/x/tools v0.0.0-20190114222345-bf090417da8b
+go: finding golang.org/x/sys v0.0.0-20180830151530-49385e6e1522
+go: finding golang.org/x/net v0.0.0-20180826012351-8a410e7b638d
+go: finding golang.org/x/sync v0.0.0-20180314180146-1d60e4601c6f
+go: finding golang.org/x/net v0.0.0-20180724234803-3673e40ba225
+go: downloading github.com/hyperledger/fabric-chaincode-go v0.0.0-20190823162523-04390e015b85
+go: downloading github.com/hyperledger/fabric-protos-go v0.0.0-20190821214336-621b908d5022
+go: extracting github.com/hyperledger/fabric-chaincode-go v0.0.0-20190823162523-04390e015b85
+go: downloading github.com/golang/protobuf v1.3.2
+go: downloading google.golang.org/grpc v1.23.0
+go: extracting github.com/hyperledger/fabric-protos-go v0.0.0-20190821214336-621b908d5022
+go: extracting github.com/golang/protobuf v1.3.2
+go: extracting google.golang.org/grpc v1.23.0
+go: downloading google.golang.org/genproto v0.0.0-20190819201941-24fa4b261c55
+go: downloading golang.org/x/net v0.0.0-20190813141303-74dc4d7220e7
+go: downloading golang.org/x/sys v0.0.0-20190813064441-fde4db37ae7a
+go: extracting golang.org/x/net v0.0.0-20190813141303-74dc4d7220e7
+go: downloading golang.org/x/text v0.3.2
+go: extracting golang.org/x/sys v0.0.0-20190813064441-fde4db37ae7a
+go: extracting google.golang.org/genproto v0.0.0-20190819201941-24fa4b261c55
+go: extracting golang.org/x/text v0.3.2
+~/workspace/myfabric/fabric-samples/first-network
+Finished vendoring Go dependencies
+
+ ____    _____      _      ____    _____ 
+/ ___|  |_   _|    / \    |  _ \  |_   _|
+\___ \    | |     / _ \   | |_) |   | |  
+ ___) |   | |    / ___ \  |  _ <    | |  
+|____/    |_|   /_/   \_\ |_| \_\   |_|  
+
+Build your first network (BYFN) end-to-end test
+
+Channel name : testchan
+Creating channel...
++ peer channel create -o orderer.example.com:7050 -c testchan -f ./channel-artifacts/channel.tx --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
++ res=0
++ set +x
+2020-02-16 17:21:57.917 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+2020-02-16 17:21:57.936 UTC [cli.common] readBlock -> INFO 002 Expect block, but got status: &{NOT_FOUND}
+2020-02-16 17:21:57.938 UTC [channelCmd] InitCmdFactory -> INFO 003 Endorser and orderer connections initialized
+2020-02-16 17:21:58.139 UTC [cli.common] readBlock -> INFO 004 Expect block, but got status: &{SERVICE_UNAVAILABLE}
+2020-02-16 17:21:58.143 UTC [channelCmd] InitCmdFactory -> INFO 005 Endorser and orderer connections initialized
+2020-02-16 17:21:58.344 UTC [cli.common] readBlock -> INFO 006 Expect block, but got status: &{SERVICE_UNAVAILABLE}
+2020-02-16 17:21:58.348 UTC [channelCmd] InitCmdFactory -> INFO 007 Endorser and orderer connections initialized
+2020-02-16 17:21:58.549 UTC [cli.common] readBlock -> INFO 008 Expect block, but got status: &{SERVICE_UNAVAILABLE}
+2020-02-16 17:21:58.551 UTC [channelCmd] InitCmdFactory -> INFO 009 Endorser and orderer connections initialized
+2020-02-16 17:21:58.753 UTC [cli.common] readBlock -> INFO 00a Expect block, but got status: &{SERVICE_UNAVAILABLE}
+2020-02-16 17:21:58.757 UTC [channelCmd] InitCmdFactory -> INFO 00b Endorser and orderer connections initialized
+2020-02-16 17:21:58.958 UTC [cli.common] readBlock -> INFO 00c Expect block, but got status: &{SERVICE_UNAVAILABLE}
+2020-02-16 17:21:58.961 UTC [channelCmd] InitCmdFactory -> INFO 00d Endorser and orderer connections initialized
+2020-02-16 17:21:59.166 UTC [cli.common] readBlock -> INFO 00e Received block: 0
+===================== Channel 'testchan' created ===================== 
+
+Having all peers join the channel...
++ peer channel join -b testchan.block
++ res=0
++ set +x
+2020-02-16 17:21:59.242 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+2020-02-16 17:21:59.424 UTC [channelCmd] executeJoin -> INFO 002 Successfully submitted proposal to join channel
+===================== peer0.org1 joined channel 'testchan' ===================== 
+
++ peer channel join -b testchan.block
++ res=0
++ set +x
+2020-02-16 17:22:02.481 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+2020-02-16 17:22:02.619 UTC [channelCmd] executeJoin -> INFO 002 Successfully submitted proposal to join channel
+===================== peer1.org1 joined channel 'testchan' ===================== 
+
++ peer channel join -b testchan.block
++ res=0
++ set +x
+2020-02-16 17:22:05.687 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+2020-02-16 17:22:05.819 UTC [channelCmd] executeJoin -> INFO 002 Successfully submitted proposal to join channel
+===================== peer0.org2 joined channel 'testchan' ===================== 
+
++ peer channel join -b testchan.block
++ res=0
++ set +x
+2020-02-16 17:22:08.880 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+2020-02-16 17:22:09.018 UTC [channelCmd] executeJoin -> INFO 002 Successfully submitted proposal to join channel
+===================== peer1.org2 joined channel 'testchan' ===================== 
+
+Updating anchor peers for org1...
++ peer channel update -o orderer.example.com:7050 -c testchan -f ./channel-artifacts/Org1MSPanchors.tx --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
++ res=0
++ set +x
+2020-02-16 17:22:12.092 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+2020-02-16 17:22:12.103 UTC [channelCmd] update -> INFO 002 Successfully submitted channel update
+===================== Anchor peers updated for org 'Org1MSP' on channel 'testchan' ===================== 
+
+Updating anchor peers for org2...
++ peer channel update -o orderer.example.com:7050 -c testchan -f ./channel-artifacts/Org2MSPanchors.tx --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
++ res=0
++ set +x
+2020-02-16 17:22:15.175 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+2020-02-16 17:22:15.187 UTC [channelCmd] update -> INFO 002 Successfully submitted channel update
+===================== Anchor peers updated for org 'Org2MSP' on channel 'testchan' ===================== 
+
++ peer lifecycle chaincode package mycc.tar.gz --path github.com/hyperledger/fabric-samples/chaincode/abstore/go/ --lang golang --label mycc_1
++ res=0
++ set +x
+===================== Chaincode is packaged on peer0.org1 ===================== 
+
+Installing chaincode on peer0.org1...
++ peer lifecycle chaincode install mycc.tar.gz
++ res=0
++ set +x
+2020-02-16 17:22:27.992 UTC [cli.lifecycle.chaincode] submitInstallProposal -> INFO 001 Installed remotely: response:<status:200 payload:"\nGmycc_1:9bf12e1d2817afbc035be1fa4ccc207fb84f5e4c1b26774da12486c9d079cedf\022\006mycc_1" > 
+2020-02-16 17:22:27.992 UTC [cli.lifecycle.chaincode] submitInstallProposal -> INFO 002 Chaincode code package identifier: mycc_1:9bf12e1d2817afbc035be1fa4ccc207fb84f5e4c1b26774da12486c9d079cedf
+===================== Chaincode is installed on peer0.org1 ===================== 
+
+Install chaincode on peer0.org2...
++ peer lifecycle chaincode install mycc.tar.gz
++ res=0
++ set +x
+2020-02-16 17:22:36.224 UTC [cli.lifecycle.chaincode] submitInstallProposal -> INFO 001 Installed remotely: response:<status:200 payload:"\nGmycc_1:9bf12e1d2817afbc035be1fa4ccc207fb84f5e4c1b26774da12486c9d079cedf\022\006mycc_1" > 
+2020-02-16 17:22:36.224 UTC [cli.lifecycle.chaincode] submitInstallProposal -> INFO 002 Chaincode code package identifier: mycc_1:9bf12e1d2817afbc035be1fa4ccc207fb84f5e4c1b26774da12486c9d079cedf
+===================== Chaincode is installed on peer0.org2 ===================== 
+
++ peer lifecycle chaincode queryinstalled
++ res=0
++ set +x
+Installed chaincodes on peer:
+Package ID: mycc_1:9bf12e1d2817afbc035be1fa4ccc207fb84f5e4c1b26774da12486c9d079cedf, Label: mycc_1
+PackageID is mycc_1:9bf12e1d2817afbc035be1fa4ccc207fb84f5e4c1b26774da12486c9d079cedf
+===================== Query installed successful on peer0.org1 on channel ===================== 
+
++ peer lifecycle chaincode approveformyorg --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem --channelID testchan --name mycc --version 1 --init-required --package-id mycc_1:9bf12e1d2817afbc035be1fa4ccc207fb84f5e4c1b26774da12486c9d079cedf --sequence 1 --waitForEvent
++ set +x
+2020-02-16 17:22:36.370 UTC [cli.lifecycle.chaincode] setOrdererClient -> INFO 001 Retrieved channel (testchan) orderer endpoint: orderer.example.com:7050
+2020-02-16 17:22:38.534 UTC [chaincodeCmd] ClientWait -> INFO 002 txid [60519195209669889daea363d0e6c9a31c64361b5d1930f1b3acdae7c2d27e25] committed with status (VALID) at 
+===================== Chaincode definition approved on peer0.org1 on channel 'testchan' ===================== 
+
+===================== Checking the commit readiness of the chaincode definition on peer0.org1 on channel 'testchan'... ===================== 
++ peer lifecycle chaincode checkcommitreadiness --channelID testchan --name mycc --version 1 --sequence 1 --output json --init-required
+Attempting to check the commit readiness of the chaincode definition on peer0.org1 ...3 secs
++ res=0
++ set +x
+
+{
+        "approvals": {
+                "Org1MSP": true,
+                "Org2MSP": false
+        }
+}
+===================== Checking the commit readiness of the chaincode definition successful on peer0.org1 on channel 'testchan' ===================== 
+===================== Checking the commit readiness of the chaincode definition on peer0.org2 on channel 'testchan'... ===================== 
+Attempting to check the commit readiness of the chaincode definition on peer0.org2 ...3 secs
++ peer lifecycle chaincode checkcommitreadiness --channelID testchan --name mycc --version 1 --sequence 1 --output json --init-required
++ res=0
++ set +x
+
+{
+        "approvals": {
+                "Org1MSP": true,
+                "Org2MSP": false
+        }
+}
+===================== Checking the commit readiness of the chaincode definition successful on peer0.org2 on channel 'testchan' ===================== 
++ peer lifecycle chaincode approveformyorg --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem --channelID testchan --name mycc --version 1 --init-required --package-id mycc_1:9bf12e1d2817afbc035be1fa4ccc207fb84f5e4c1b26774da12486c9d079cedf --sequence 1 --waitForEvent
++ set +x
+2020-02-16 17:22:44.844 UTC [cli.lifecycle.chaincode] setOrdererClient -> INFO 001 Retrieved channel (testchan) orderer endpoint: orderer.example.com:7050
+2020-02-16 17:22:46.993 UTC [chaincodeCmd] ClientWait -> INFO 002 txid [ac3efa908eebf5265d9a12a9e12a5f94f0abf1417e87557063f03a94b1dbd187] committed with status (VALID) at 
+===================== Chaincode definition approved on peer0.org2 on channel 'testchan' ===================== 
+
+===================== Checking the commit readiness of the chaincode definition on peer0.org1 on channel 'testchan'... ===================== 
+Attempting to check the commit readiness of the chaincode definition on peer0.org1 ...3 secs
++ peer lifecycle chaincode checkcommitreadiness --channelID testchan --name mycc --version 1 --sequence 1 --output json --init-required
++ res=0
++ set +x
+
+{
+        "approvals": {
+                "Org1MSP": true,
+                "Org2MSP": true
+        }
+}
+===================== Checking the commit readiness of the chaincode definition successful on peer0.org1 on channel 'testchan' ===================== 
+===================== Checking the commit readiness of the chaincode definition on peer0.org2 on channel 'testchan'... ===================== 
+Attempting to check the commit readiness of the chaincode definition on peer0.org2 ...3 secs
++ peer lifecycle chaincode checkcommitreadiness --channelID testchan --name mycc --version 1 --sequence 1 --output json --init-required
++ res=0
++ set +x
+
+{
+        "approvals": {
+                "Org1MSP": true,
+                "Org2MSP": true
+        }
+}
+===================== Checking the commit readiness of the chaincode definition successful on peer0.org2 on channel 'testchan' ===================== 
++ peer lifecycle chaincode commit -o orderer.example.com:7050 --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem --channelID testchan --name mycc --peerAddresses peer0.org1.example.com:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt --peerAddresses peer0.org2.example.com:9051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt --version 1 --sequence 1 --init-required
++ res=0
++ set +x
+2020-02-16 17:22:55.626 UTC [chaincodeCmd] ClientWait -> INFO 001 txid [d0dcb4b81c7b5b05ca15f773f702560e19346d0881a8e45a70d85aab716c5115] committed with status (VALID) at peer0.org2.example.com:9051
+2020-02-16 17:22:55.639 UTC [chaincodeCmd] ClientWait -> INFO 002 txid [d0dcb4b81c7b5b05ca15f773f702560e19346d0881a8e45a70d85aab716c5115] committed with status (VALID) at peer0.org1.example.com:7051
+===================== Chaincode definition committed on channel 'testchan' ===================== 
+
+===================== Querying chaincode definition on peer0.org1 on channel 'testchan'... ===================== 
++ peer lifecycle chaincode querycommitted --channelID testchan --name mycc
+Attempting to Query committed status on peer0.org1 ...3 secs
++ res=0
++ set +x
+
+Committed chaincode definition for chaincode 'mycc' on channel 'testchan':
+Version: 1, Sequence: 1, Endorsement Plugin: escc, Validation Plugin: vscc, Approvals: [Org1MSP: true, Org2MSP: true]
+===================== Query chaincode definition successful on peer0.org1 on channel 'testchan' ===================== 
+===================== Querying chaincode definition on peer0.org2 on channel 'testchan'... ===================== 
++ peer lifecycle chaincode querycommitted --channelID testchan --name mycc
+Attempting to Query committed status on peer0.org2 ...3 secs
++ res=0
++ set +x
+
+Committed chaincode definition for chaincode 'mycc' on channel 'testchan':
+Version: 1, Sequence: 1, Endorsement Plugin: escc, Validation Plugin: vscc, Approvals: [Org1MSP: true, Org2MSP: true]
+===================== Query chaincode definition successful on peer0.org2 on channel 'testchan' ===================== 
++ peer chaincode invoke -o orderer.example.com:7050 --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C testchan -n mycc --peerAddresses peer0.org1.example.com:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt --peerAddresses peer0.org2.example.com:9051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt --isInit -c '{"Args":["Init","a","100","b","100"]}'
++ res=0
++ set +x
+2020-02-16 17:23:01.993 UTC [chaincodeCmd] chaincodeInvokeOrQuery -> INFO 001 Chaincode invoke successful. result: status:200 
+===================== Invoke transaction successful on peer0.org1 peer0.org2 on channel 'testchan' ===================== 
+
+Querying chaincode on peer0.org1...
+===================== Querying on peer0.org1 on channel 'testchan'... ===================== 
++ peer chaincode query -C testchan -n mycc -c '{"Args":["query","a"]}'
+Attempting to Query peer0.org1 ...3 secs
++ res=0
++ set +x
+
+100
+===================== Query successful on peer0.org1 on channel 'testchan' ===================== 
+Sending invoke transaction on peer0.org1 peer0.org2...
++ peer chaincode invoke -o orderer.example.com:7050 --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C testchan -n mycc --peerAddresses peer0.org1.example.com:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt --peerAddresses peer0.org2.example.com:9051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt -c '{"Args":["invoke","a","b","10"]}'
++ res=0
++ set +x
+2020-02-16 17:23:05.188 UTC [chaincodeCmd] chaincodeInvokeOrQuery -> INFO 001 Chaincode invoke successful. result: status:200 
+===================== Invoke transaction successful on peer0.org1 peer0.org2 on channel 'testchan' ===================== 
+
+Querying chaincode on peer0.org1...
+===================== Querying on peer0.org1 on channel 'testchan'... ===================== 
++ peer chaincode query -C testchan -n mycc -c '{"Args":["query","a"]}'
+Attempting to Query peer0.org1 ...3 secs
++ res=0
++ set +x
+
+90
+===================== Query successful on peer0.org1 on channel 'testchan' ===================== 
+Installing chaincode on peer1.org2...
++ peer lifecycle chaincode install mycc.tar.gz
++ res=0
++ set +x
+2020-02-16 17:23:16.875 UTC [cli.lifecycle.chaincode] submitInstallProposal -> INFO 001 Installed remotely: response:<status:200 payload:"\nGmycc_1:9bf12e1d2817afbc035be1fa4ccc207fb84f5e4c1b26774da12486c9d079cedf\022\006mycc_1" > 
+2020-02-16 17:23:16.875 UTC [cli.lifecycle.chaincode] submitInstallProposal -> INFO 002 Chaincode code package identifier: mycc_1:9bf12e1d2817afbc035be1fa4ccc207fb84f5e4c1b26774da12486c9d079cedf
+===================== Chaincode is installed on peer1.org2 ===================== 
+
+Querying chaincode on peer1.org2...
+===================== Querying on peer1.org2 on channel 'testchan'... ===================== 
++ peer chaincode query -C testchan -n mycc -c '{"Args":["query","a"]}'
+Attempting to Query peer1.org2 ...3 secs
++ res=0
++ set +x
+
+90
+===================== Query successful on peer1.org2 on channel 'testchan' ===================== 
+
+========= All GOOD, BYFN execution completed =========== 
+
+
+ _____   _   _   ____   
+| ____| | \ | | |  _ \  
+|  _|   |  \| | | | | | 
+| |___  | |\  | | |_| | 
+|_____| |_| \_| |____/  
+

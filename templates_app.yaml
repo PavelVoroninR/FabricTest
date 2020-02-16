@@ -1,0 +1,64 @@
+- hosts: localhost
+  remote_user: pavel
+  vars:
+    config_home: '/home/pavel/workspace/myfabric/config/generated'
+# configtx.yaml
+# ORGANIZATIONS
+    org_name: SampleOrg
+    org_pol_name: SampleOrgPolicies
+    orderer_endpoints: "127.0.0.1:7050"
+    anchor_peers_host: 127.0.0.1
+    anchor_peers_port: 7051
+# CAPABILITIES
+  # skip
+# APPLICATION
+  # skip
+# ORDERER
+    orderer_type: solo
+    brokers:
+      - { host: 'kafka0',
+          port: '9092'
+      }
+      - { host: 'kafka1',
+          port: '9092'
+      }
+      - { host: 'kafka2',
+          port: '9092'
+      }
+    raft_consenters:
+      - { host: 'raft0.example.com',
+          port: 7050,
+          client_TLS_cert: 'path/to/ClientTLSCert0',
+          server_TLS_cert: 'path/to/ServerTLSCert0'
+      }
+      - { host: 'raft1.example.com',
+          port: 7050,
+          client_TLS_cert: 'path/to/ClientTLSCert1',
+          server_TLS_cert: 'path/to/ServerTLSCert1'
+      }
+      - { host: 'raft2.example.com',
+          port: 7050,
+          client_TLS_cert: 'path/to/ClientTLSCert2',
+          server_TLS_cert: 'path/to/ServerTLSCert2'
+      }
+# CHANNEL
+    # skip
+# PROFILES
+    # skip
+# core.yaml
+# Peer section
+    id: jdoe
+    network_id: my_test
+    peer_listen_host: '0.0.0.0'
+    peer_listen_port: '7051'
+    peer_bootstrap: "127.0.0.1:{{ peer_listen_port }}"
+    peer_local_msp_id: "{{ org_name }}"
+# VM section
+    vm_endpoint: 'unix:///var/run/docker.sock'
+# Chaincode section
+  tasks:
+    - name: generate config configtx.yaml
+      template: 
+        src: templates/configtx.yaml.j2
+        dest: "{{ config_home }}/configtx.yaml"
+
